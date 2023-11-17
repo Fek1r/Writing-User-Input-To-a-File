@@ -1,17 +1,20 @@
 #include <stdio.h>
 
-int main()
-{
-    //r, w, a, - text mode
-    //b, +
-    //b - binary => rb,wb,ab
-    //+ - if file does not exist - create that file
+int main(){
+    FILE *fl;
     char user_input[256];
+    fl = fopen("user_input.txt","w");
+
     int flag;
+
+    printf("Enter word\n");
     scanf("%[^\n]%*c",user_input);
+
     printf("%s ",user_input);
-    
-    //FILE *flpntr = fopen("user_input.txt","w+");
-    //fprintf(flpntr,"%s",text);
-    //fclose(flpntr);
+    fprintf(fl,"%s",user_input);
+
+    fclose(fl);
+
+
+    return 0;
 }
